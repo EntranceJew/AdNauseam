@@ -2,7 +2,7 @@ language: ruby
 sudo: false
 env:
   matrix:
-  - BROWSER=chromium EXT=zip
+  - BROWSER=chromium EXT=crx
   - BROWSER=firefox EXT=xpi
   - BROWSER=webext EXT=xpi
 script: ./tools/make-${BROWSER}.sh all
