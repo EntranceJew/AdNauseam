@@ -1,4 +1,5 @@
 #!/bin/bash
-tools/make-chromium.sh
-tools/make-opera.sh
-tools/make-firefox.sh
+bash ./tools/make-chromium.sh all
+bash ./tools/make-firefox.sh all
+bash ./tools/make-webext.sh all
+bash ./tools/make-opera.sh all

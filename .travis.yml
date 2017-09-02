@@ -1,13 +1,8 @@
 language: ruby
 sudo: false
-env:
-  matrix:
-  - BROWSER=chromium EXT=crx
-  - BROWSER=firefox EXT=xpi
-  - BROWSER=webext EXT=xpi
 before_script:
 - git clone https://github.com/uBlockOrigin/uAssets.git ../uAssets
-script: "./tools/make-${BROWSER}.sh all"
+script: "./tools/make-all.sh"
 deploy:
   provider: releases
   prerelease: true
