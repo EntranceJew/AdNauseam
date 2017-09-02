@@ -54,11 +54,11 @@ if [ "$1" = all ]; then
     fi
     pwd
     ls -lia .
+    realpath ../artifacts
     ls -lia ../artifacts
     zip ../artifacts/${filename}.xpi -qr ./*
     cp ../artifacts/${filename}.xpi ../artifacts/${altname}.zip
     popd > /dev/null
-    rm -rf $DES
 fi
 
 echo "*** AdNauseam::Firefox: Package done."
