@@ -21,6 +21,5 @@ deploy:
   file: dist/build/adnauseam.${BROWSER}.${EXT}
   skip_cleanup: true
   on:
-    repo: dhowe/AdNauseam
-    tags: true
+    repo: EntranceJew/AdNauseam
     all_branches: true
