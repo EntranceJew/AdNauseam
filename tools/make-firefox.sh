@@ -52,6 +52,9 @@ if [ "$1" = all ]; then
       filename=adnauseam-${TRAVIS_TAG}.firefox.
       altname=adnauseam-${TRAVIS_TAG}.webext.
     fi
+    pwd
+    ls -lia .
+    ls -lia ../artifacts
     zip ../artifacts/${filename}.xpi -qr ./*
     cp ../artifacts/${filename}.xpi ../artifacts/${altname}.zip
     popd > /dev/null
