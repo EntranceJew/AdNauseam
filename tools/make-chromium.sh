@@ -38,7 +38,7 @@ sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
 echo "*** AdNauseam::Chromium: Creating package..."
 openssl genrsa -out ./platform/chromium/adnauseam-first.pem 768
 openssl pkcs8 -topk8 -nocrypt -in ./platform/chromium/adnauseam-first.pem -out ./platform/chromium/adnauseam.pem
-pushd $(dirname $DES/) > /dev/null
+pushd $DES > /dev/null
 mkdir -p ../artifacts
 if [ -n "${TRAVIS_TAG}" ]; then
   filename=adnauseam-${TRAVIS_TAG}.chromium
@@ -49,9 +49,9 @@ else
 fi
 zip ../artifacts/${filename}.zip -qr -9 -X ./*
 pushd ../artifacts > /dev/null
-bash ../../tools/crx-build.sh ${filename}.zip ../../platform/chromium/adnauseam.pem
-cp ../artifacts/${filename}.zip ../artifacts/${altname}.zip
-cp ../artifacts/${filename}.crx ../artifacts/${altname}.nex
+bash ../../../tools/crx-build.sh ${filename}.zip ../../../platform/chromium/adnauseam.pem
+cp ${filename}.zip ${altname}.zip
+cp ${filename}.crx ${altname}.nex
 popd > /dev/null
 
 echo "*** AdNauseam::Chromium: Package done."

@@ -42,9 +42,7 @@ python tools/make-firefox-meta.py $DES/ "$2"
 
 
 echo "*** AdNauseam::Firefox: Creating package..."
-pwd
-pushd $(dirname $DES/) > /dev/null
-pwd
+pushd $DES > /dev/null
 mkdir -p ../artifacts
 if [ -n "${TRAVIS_TAG}" ]; then
   filename=adnauseam-${TRAVIS_TAG}.firefox
@@ -55,9 +53,6 @@ else
 fi
 zip ../artifacts/${filename}.xpi -qr ./*
 cp ../artifacts/${filename}.xpi ../artifacts/${altname}.zip
-pwd
-ls -lia .
-ls -lia ../artifacts
 popd > /dev/null
 
 echo "*** AdNauseam::Firefox: Package done."
