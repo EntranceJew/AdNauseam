@@ -41,26 +41,24 @@ echo "*** AdNauseam::Firefox: Generating meta..."
 python tools/make-firefox-meta.py $DES/ "$2"
 
 
-if [ "$1" = all ]; then
-    echo "*** AdNauseam::Firefox: Creating package..."
-    pwd
-    pushd $(dirname $DES/) > /dev/null
-    pwd
-    mkdir -p ../artifacts
-    if [ -n "${TRAVIS_TAG}" ]; then
-      filename=adnauseam.firefox
-      altname=adnauseam.webext
-    else
-      filename=adnauseam-${TRAVIS_TAG}.firefox
-      altname=adnauseam-${TRAVIS_TAG}.webext
-    fi
-    zip ../artifacts/${filename}.xpi -qr ./*
-    cp ../artifacts/${filename}.xpi ../artifacts/${altname}.zip
-    pwd
-    ls -lia .
-    ls -lia ../artifacts
-    popd > /dev/null
+echo "*** AdNauseam::Firefox: Creating package..."
+pwd
+pushd $(dirname $DES/) > /dev/null
+pwd
+mkdir -p ../artifacts
+if [ -n "${TRAVIS_TAG}" ]; then
+  filename=adnauseam-${TRAVIS_TAG}.firefox
+  altname=adnauseam-${TRAVIS_TAG}.webext
+else
+  filename=adnauseam.firefox
+  altname=adnauseam.webext
 fi
+zip ../artifacts/${filename}.xpi -qr ./*
+cp ../artifacts/${filename}.xpi ../artifacts/${altname}.zip
+pwd
+ls -lia .
+ls -lia ../artifacts
+popd > /dev/null
 
 echo "*** AdNauseam::Firefox: Package done."
 echo
