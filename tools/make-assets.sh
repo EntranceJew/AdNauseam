@@ -13,8 +13,11 @@ fi
 printf "*** Packaging assets in $DES... "
 
 if [ -n "${TRAVIS_TAG}" ]; then
+  echo "it's me"
   pushd .. > /dev/null
+  pwd
   git clone https://github.com/uBlockOrigin/uAssets.git
+  ls -lia uAssets
   popd > /dev/null
 fi
 
@@ -23,14 +26,15 @@ mkdir $DES
 cp    ./assets/assets.json                                       $DES/
 
 mkdir $DES/thirdparties
-
+echo ""
 pwd
-cp -R ./../uAssets/thirdparties/easylist-downloads.adblockplus.org $DES/thirdparties/
-cp -R ./../uAssets/thirdparties/mirror1.malwaredomains.com         $DES/thirdparties/
-cp -R ./../uAssets/thirdparties/pgl.yoyo.org                       $DES/thirdparties/
-cp -R ./../uAssets/thirdparties/publicsuffix.org                   $DES/thirdparties/
-cp -R ./../uAssets/thirdparties/www.malwaredomainlist.com          $DES/thirdparties/
-cp -R ./../uAssets/thirdparties/www.eff.org                        $DES/thirdparties/
+ls -lia ..
+cp -R ../uAssets/thirdparties/easylist-downloads.adblockplus.org $DES/thirdparties/
+cp -R ../../uAssets/thirdparties/mirror1.malwaredomains.com         $DES/thirdparties/
+cp -R ../../uAssets/thirdparties/pgl.yoyo.org                       $DES/thirdparties/
+cp -R ../../uAssets/thirdparties/publicsuffix.org                   $DES/thirdparties/
+cp -R ../../uAssets/thirdparties/www.malwaredomainlist.com          $DES/thirdparties/
+cp -R ../../uAssets/thirdparties/www.eff.org                        $DES/thirdparties/
 
 mkdir $DES/ublock
 cp -R ../uAssets/filters/*                                       $DES/ublock/
