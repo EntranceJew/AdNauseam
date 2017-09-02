@@ -26,12 +26,7 @@ mkdir $DES/thirdparties
 echo ""
 pwd
 ls -lia ..
-cp -R ../uAssets/thirdparties/easylist-downloads.adblockplus.org $DES/thirdparties/
-cp -R ../uAssets/thirdparties/mirror1.malwaredomains.com         $DES/thirdparties/
-cp -R ../uAssets/thirdparties/pgl.yoyo.org                       $DES/thirdparties/
-cp -R ../uAssets/thirdparties/publicsuffix.org                   $DES/thirdparties/
-cp -R ../uAssets/thirdparties/www.malwaredomainlist.com          $DES/thirdparties/
-cp -R ../uAssets/thirdparties/www.eff.org                        $DES/thirdparties/
+cp -R ../uAssets/thirdparties                                    $DES/
 
 mkdir $DES/ublock
 cp -R ../uAssets/filters/*                                       $DES/ublock/
