@@ -9,15 +9,14 @@ before_script:
 - git clone https://github.com/uBlockOrigin/uAssets.git ../uAssets
 - openssl genrsa -out ./platform/chromium/adnauseam-first.pem 768
 - openssl pkcs8 -topk8 -nocrypt -in ./platform/chromium/adnauseam-first.pem -out ./platform/chromium/adnauseam.pem
-script: ./tools/make-${BROWSER}.sh all
+script: "./tools/make-${BROWSER}.sh all"
 deploy:
   provider: releases
   prerelease: true
   # https://github.com/travis-ci/travis-ci/issues/6772
   api_key:
-    secure: EnAMNsPbnS2I0JDkCWiY/6WLERsUbE2Ni5j9ap8YbZt4+sJv7aSoufWZ+0TZvSwr/w5MKCCDKhwXaPfbUwvqrI+eZv6LBXhwajK9Zla25FVjtdGCwKXQ3ZU85PHgL+5FYtuSGACmQj/ruAdSgrI7PgS08e5lqSgEk6lY4y3/6fE=
+    secure: sC5TEKuQVSiGm/Z3XDeSnw7VnRaOPrCDb9p0zvTCPKAL+eIP6VxdOHbwbJJkx0dhqPQu9xJW3BzBw4wjGKsXPC6rOCj/eSMTlauofqZvxnylUwyn1zXYfrmKfnugYzPrfjkIH0Y+YjzVmGSpKJPn6KR3lCvwcUa+paoFoKyDPzsjRFxbo0e70gzDZ7P0yGD86vIRuIUCtckNdDlYJZdqgtVfW9os5AyhjHY2nZod7a+67zor6gqOgaN8be6WUiRLyim04v1LTavIsGb4BOj5cfepfeLarhajCc0dDq3eOH6j+b6b4qWWzUAoiLNlvXngxWjvs+y2grAqYhtVwYjHvpzGFIdEN/dNBvbKlcBQIh6Uh2YpEJ4kuGW3UFFdf/g5x6rmDIjS3SyYlGOcdszsPynC+N+bLKFzjPY5ZRB8XsQAuUrYD+2uTspJSAoGz1cXmPBS5cfJv6KAMjzGfRKx29tS6pgibh8xbms6XPPYP1jMNF+80cQyRWt27NuF+p9Xpkz82R/KWidL9zX4rzQlZIZwVm8kcxpjzRoLc9Vkger8nyqD0OAR4hJVul0ljDsr+CopP8CP/DhY1B0jwaFxlu7qU13wJRAVvW9DbtU2lludOooBN6B4sIzo5jCx+ULBbwnUVUsf2hgl72ilmOBuyoqZfl1ke44/FPoMmN/vZbM=
   file: dist/build/adnauseam.${BROWSER}.${EXT}
   skip_cleanup: true
   on:
     repo: EntranceJew/AdNauseam
-    all_branches: true
