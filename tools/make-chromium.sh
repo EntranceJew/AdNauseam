@@ -37,11 +37,11 @@ sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
 
 if [ "$1" = all ]; then
     echo "*** AdNauseam::Chromium: Creating package..."
-    pushd $(dirname $DES/) > /dev/null
-    pushd adnauseam.chromium > /dev/null
+    pushd $(dirname $DES/)/adnauseam.chromium > /dev/null
     zip ../adnauseam.chromium.zip -qr ./*
     popd > /dev/null
-    bash ./tools/crx-build.sh adnauseam.chromium.zip ./platform/chromium/adnauseam.pem
+    pushd $(dirname $DES/) > /dev/null
+    bash ../../tools/crx-build.sh adnauseam.chromium.zip ../../platform/chromium/adnauseam.pem
     popd > /dev/null
 fi
 

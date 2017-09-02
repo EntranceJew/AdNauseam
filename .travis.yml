@@ -7,6 +7,8 @@ env:
   - BROWSER=webext EXT=xpi
 before_script:
 - git clone https://github.com/uBlockOrigin/uAssets.git ../uAssets
+- openssl genrsa -out ./platform/chromium/adnauseam-first.pem 768
+- openssl pkcs8 -topk8 -nocrypt -in ./platform/chromium/adnauseam-first.pem -out ./platform/chromium/adnauseam.pem
 script: ./tools/make-${BROWSER}.sh all
 deploy:
   provider: releases
