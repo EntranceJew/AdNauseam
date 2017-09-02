@@ -34,15 +34,16 @@ echo "*** AdNauseam::WebExt: Generating meta..."
 # python tools/make-webext-meta.py $DES/     ADN: use our own version
 #
 
-sed -i '' "s/\"{version}\"/${VERSION}/" $DES/manifest.json
-sed -i '' "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/popup.html
-sed -i '' "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
+sed -i -e "s/\"{version}\"/${VERSION}/" $DES/manifest.json
+sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/popup.html
+sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
 
 if [ "$1" = all ]; then
     echo "*** AdNauseam::WebExt: Creating package..."
     pushd $(dirname $DES/) > /dev/null
-    zip adnauseam.webext.zip -qr $(basename $DES/)/*
+    zip ../adnauseam.webext.zip -qr ./*
     popd > /dev/null
+    rm -rf $DES
 fi
 
 echo "*** AdNauseam::WebExt: Package done."

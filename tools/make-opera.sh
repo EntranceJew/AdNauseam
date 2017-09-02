@@ -37,9 +37,9 @@ cp -R platform/chromium/img $DES/
 cp platform/opera/manifest.json $DES/  # adn: overwrites chromium manifest
 cp LICENSE.txt $DES/
 
-sed -i '' "s/\"{version}\"/${VERSION}/" $DES/manifest.json
-sed -i '' "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/popup.html
-sed -i '' "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
+sed -i -e "s/\"{version}\"/${VERSION}/" $DES/manifest.json
+sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/popup.html
+sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
 
 echo "*** AdNauseam::Opera: Package Done."
 echo
