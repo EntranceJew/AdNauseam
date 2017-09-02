@@ -49,8 +49,8 @@ if [ "$1" = all ]; then
       altname=adnauseam-${TRAVIS_TAG}.opera
     fi
     zip ../artifacts/${filename}.zip -qr -9 -X ./*
-    pushd ../ > /dev/null
-    bash ../../../tools/crx-build.sh ${filename}.zip ../../../platform/chromium/adnauseam.pem
+    pushd ../artifacts > /dev/null
+    bash ../../tools/crx-build.sh ${filename}.zip ../../platform/chromium/adnauseam.pem
     cp ../artifacts/${filename}.zip ../artifacts/${altname}.zip
     cp ../artifacts/${filename}.crx ../artifacts/${altname}.nex
     popd > /dev/null
