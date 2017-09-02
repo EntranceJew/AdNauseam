@@ -21,8 +21,8 @@ cp -R src/lib                           $DES/
 #cp -R src/_locales                      $DES/
 cp    src/*.html                        $DES/
 
-sed -i '' "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/popup.html
-sed -i '' "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
+sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/popup.html
+sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
 
 mv    $DES/img/icon_128.png             $DES/icon.png
 cp    platform/firefox/css/*            $DES/css/
@@ -44,8 +44,9 @@ python tools/make-firefox-meta.py $DES/ "$2"
 if [ "$1" = all ]; then
     echo "*** AdNauseam::Firefox: Creating package..."
     pushd $(dirname $DES/) > /dev/null
-    zip artifacts/adnauseam.firefox.xpi -qr *
+    zip ../adnauseam.firefox.xpi -qr *
     popd > /dev/null
+    rm -rf $DES
 fi
 
 echo "*** AdNauseam::Firefox: Package done."
