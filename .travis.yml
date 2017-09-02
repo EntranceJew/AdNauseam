@@ -5,11 +5,11 @@ before_script:
 script: "./tools/make-all.sh"
 deploy:
   provider: releases
-  prerelease: true
   # https://github.com/travis-ci/travis-ci/issues/6772
   api_key:
     secure: sC5TEKuQVSiGm/Z3XDeSnw7VnRaOPrCDb9p0zvTCPKAL+eIP6VxdOHbwbJJkx0dhqPQu9xJW3BzBw4wjGKsXPC6rOCj/eSMTlauofqZvxnylUwyn1zXYfrmKfnugYzPrfjkIH0Y+YjzVmGSpKJPn6KR3lCvwcUa+paoFoKyDPzsjRFxbo0e70gzDZ7P0yGD86vIRuIUCtckNdDlYJZdqgtVfW9os5AyhjHY2nZod7a+67zor6gqOgaN8be6WUiRLyim04v1LTavIsGb4BOj5cfepfeLarhajCc0dDq3eOH6j+b6b4qWWzUAoiLNlvXngxWjvs+y2grAqYhtVwYjHvpzGFIdEN/dNBvbKlcBQIh6Uh2YpEJ4kuGW3UFFdf/g5x6rmDIjS3SyYlGOcdszsPynC+N+bLKFzjPY5ZRB8XsQAuUrYD+2uTspJSAoGz1cXmPBS5cfJv6KAMjzGfRKx29tS6pgibh8xbms6XPPYP1jMNF+80cQyRWt27NuF+p9Xpkz82R/KWidL9zX4rzQlZIZwVm8kcxpjzRoLc9Vkger8nyqD0OAR4hJVul0ljDsr+CopP8CP/DhY1B0jwaFxlu7qU13wJRAVvW9DbtU2lludOooBN6B4sIzo5jCx+ULBbwnUVUsf2hgl72ilmOBuyoqZfl1ke44/FPoMmN/vZbM=
   file_glob: true
   file: dist/build/artifacts/*
   skip_cleanup: true
-  all_branches: true
+  on:
+    branch: travis-crx
