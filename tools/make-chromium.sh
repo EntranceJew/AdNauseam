@@ -37,6 +37,8 @@ sed -i -e "s/{UBLOCK_VERSION}/${UBLOCK}/" $DES/links.html
 
 if [ "$1" = all ]; then
     echo "*** AdNauseam::Chromium: Creating package..."
+    openssl genrsa -out ./platform/chromium/adnauseam-first.pem 768
+    openssl pkcs8 -topk8 -nocrypt -in ./platform/chromium/adnauseam-first.pem -out ./platform/chromium/adnauseam.pem
     pushd $(dirname $DES/)/adnauseam.chromium > /dev/null
     zip ../adnauseam.chromium.zip -qr ./*
     popd > /dev/null

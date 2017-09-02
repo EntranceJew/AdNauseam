@@ -44,7 +44,7 @@ python tools/make-firefox-meta.py $DES/ "$2"
 if [ "$1" = all ]; then
     echo "*** AdNauseam::Firefox: Creating package..."
     pushd $(dirname $DES/) > /dev/null
-    zip ../adnauseam.firefox.xpi -qr *
+    zip ../adnauseam.firefox.xpi -qr ./*
     popd > /dev/null
     rm -rf $DES
 fi
