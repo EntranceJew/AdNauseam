@@ -40,8 +40,7 @@ if [ "$1" = all ]; then
     pushd $(dirname $DES/)/adnauseam.chromium > /dev/null
     zip ../adnauseam.chromium.zip -qr ./*
     popd > /dev/null
-    bash ../../tools/crx-build.sh adnauseam.chromium.zip ../../platform/chromium/adnauseam.pem
-    popd > /dev/null
+    bash ./tools/crx-build.sh $(dirname $DES/)/adnauseam.chromium.zip ./platform/chromium/adnauseam.pem
 fi
 
 echo "*** AdNauseam::Chromium: Package done."
