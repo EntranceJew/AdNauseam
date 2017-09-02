@@ -45,6 +45,7 @@ if [ "$1" = all ]; then
     echo "*** AdNauseam::Firefox: Creating package..."
     pushd $(dirname $DES/) > /dev/null
     zip ../adnauseam.firefox.xpi -qr ./*
+    ls -lia ../
     popd > /dev/null
     rm -rf $DES
 fi
