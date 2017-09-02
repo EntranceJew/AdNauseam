@@ -42,11 +42,11 @@ if [ "$1" = all ]; then
     pushd $(dirname $DES/) > /dev/null
     mkdir -p ../artifacts
     if [ -n "${TRAVIS_TAG}" ]; then
-      filename=adnauseam.chromium.
-      altname=adnauseam.opera.
+      filename=adnauseam.chromium
+      altname=adnauseam.opera
     else
-      filename=adnauseam-${TRAVIS_TAG}.chromium.
-      altname=adnauseam-${TRAVIS_TAG}.opera.
+      filename=adnauseam-${TRAVIS_TAG}.chromium
+      altname=adnauseam-${TRAVIS_TAG}.opera
     fi
     zip ../artifacts/${filename}.zip -qr -9 -X ./*
     pwd

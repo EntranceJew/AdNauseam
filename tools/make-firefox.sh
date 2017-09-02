@@ -46,11 +46,11 @@ if [ "$1" = all ]; then
     pushd $(dirname $DES/) > /dev/null
     mkdir -p ../artifacts
     if [ -n "${TRAVIS_TAG}" ]; then
-      filename=adnauseam.firefox.
-      altname=adnauseam.webext.
+      filename=adnauseam.firefox
+      altname=adnauseam.webext
     else
-      filename=adnauseam-${TRAVIS_TAG}.firefox.
-      altname=adnauseam-${TRAVIS_TAG}.webext.
+      filename=adnauseam-${TRAVIS_TAG}.firefox
+      altname=adnauseam-${TRAVIS_TAG}.webext
     fi
     pwd
     ls -lia .
