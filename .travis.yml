@@ -13,5 +13,3 @@ deploy:
   file: dist/build/artifacts/*
   skip_cleanup: true
   all_branches: true
-  on:
-    repo: EntranceJew/AdNauseam
