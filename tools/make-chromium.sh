@@ -40,18 +40,18 @@ if [ "$1" = all ]; then
     openssl genrsa -out ./platform/chromium/adnauseam-first.pem 768
     openssl pkcs8 -topk8 -nocrypt -in ./platform/chromium/adnauseam-first.pem -out ./platform/chromium/adnauseam.pem
     pushd $(dirname $DES/) > /dev/null
-    mkdir ../artifacts
+    mkdir -p ../artifacts
     if [ -n "${TRAVIS_TAG}" ]; then
       filename=adnauseam.chromium.
-      operaname=adnauseam.opera.
+      altname=adnauseam.opera.
     else
       filename=adnauseam-${TRAVIS_TAG}.chromium.
-      operaname=adnauseam-${TRAVIS_TAG}.opera.
+      altname=adnauseam-${TRAVIS_TAG}.opera.
     fi
     zip ../artifacts/${filename}.zip -qr -9 -X ./*
     bash ../../../tools/crx-build.sh ${filename}.zip ../../../platform/chromium/adnauseam.pem
-    cp ../artifacts/${filename}.zip ../artifacts/${operaname}.zip
-    cp ../artifacts/${filename}.crx ../artifacts/${operaname}.nex
+    cp ../artifacts/${filename}.zip ../artifacts/${altname}.zip
+    cp ../artifacts/${filename}.crx ../artifacts/${altname}.nex
     popd > /dev/null
     rm -rf $DES
 fi
